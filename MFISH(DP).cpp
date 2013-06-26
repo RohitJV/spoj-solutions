@@ -1,3 +1,5 @@
+http://www.spoj.com/problems/MFISH
+
 #include<iostream>
 #include<string.h>
 #include<stdio.h>
