@@ -1,3 +1,5 @@
+www.spoj.com/problems/QUEST4
+
 #include<iostream>
 #include<stdio.h>
 #include<string.h>
