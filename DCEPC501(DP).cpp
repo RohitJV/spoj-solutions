@@ -1,3 +1,5 @@
+http://www.spoj.com/problems/DCEPC501/
+
 #include<iostream>
 #include<string.h>
 #include<stdio.h>
