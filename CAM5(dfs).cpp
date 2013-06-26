@@ -1,3 +1,5 @@
+http://www.spoj.com/problems/CAM5
+
 #include<iostream>
 #include<queue>
 #include<string.h>
