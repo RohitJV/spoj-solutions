@@ -3,26 +3,21 @@
 #include<string.h>
 using namespace std;
  
-int dp[50005],t,n,y,c,val[15],in[15],rem,store;
+int dp[50000],t,n,y,c,val[15],in[15],rem,store;
  
 int calc(int x)
 {
-    if(x<=store)
-        return dp[x];
-    for(int i=store;i<=x;i++)
+    int res=-1;
+    for(int i=0;i<=x;i++)
         dp[i]=0;
-    for(int i=store;i<=x;i++)
+    for(int i=0;i<=x;i++)
     {
         for(int j=0;j<n;j++)
-        {
             if(i-val[j] >= 0)
-            {
                 dp[i]=max(dp[i],in[j]+dp[i-val[j]]); 
-            }
-        }
+        res=max(res,dp[i]);
     }
-    store=x;
-    return(dp[x]);
+    return(res);
 }
  
 int main()
@@ -54,3 +49,5 @@ int main()
     }
 }
  
+
+
