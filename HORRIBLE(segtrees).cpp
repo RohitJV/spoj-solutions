@@ -1,12 +1,12 @@
 #include<iostream>
 using namespace std;
- 
+
 struct node
 {
     long long int sum,lazy;
     int flag;
 }tree[6000000],inf;
- 
+
 void build(int i,int l,int h)
 {
         if(l==h)
@@ -20,7 +20,7 @@ void build(int i,int l,int h)
         tree[i].sum=tree[i].lazy=tree[i].flag=0;
         return;
 }
- 
+
 void propagate(int in,int l,int h)
 {
     //cout<<"propagate : "<<in*2<<" "<<in*2+1<<" ";
@@ -32,22 +32,13 @@ void propagate(int in,int l,int h)
     tree[in].lazy=0;
     //cout<<tree[in].sum<<"\n";
 }
- 
+
 void update(int in,int i,int j,int l,int h,long long int v)
 {
-        //cout<<l<<" "<<h<<"\n";
-        if(l>h)
-        {
-            //cout<<"wrong\n";
-            return;
-        }
         if(tree[in].flag)
             propagate(in,l,h);
         if(l>j || h<i)
-        {
-            //cout<<"outofscope\n";
             return;
-        }
         int left=in*2;
         int right=left+1;
         int mid=(l+h)/2;
@@ -65,7 +56,7 @@ void update(int in,int i,int j,int l,int h,long long int v)
         update(right,i,j,mid+1,h,v);
         tree[in].sum=tree[left].sum+tree[right].sum;
 }
- 
+
 node query(int in,int i,int j,int l,int h)
 {
         if(tree[in].flag)
@@ -80,8 +71,8 @@ node query(int in,int i,int j,int l,int h)
         node temp;
         temp.sum=a.sum+b.sum;
         return(temp);
-} 
- 
+}
+
 int main()
 {
     inf.sum=0;
@@ -109,7 +100,3 @@ int main()
         }
     }
 }
-
-
-
-
