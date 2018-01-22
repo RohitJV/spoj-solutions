@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a[10000],b[10000],m,n,pos1,pos2,sum1,sum2,total,i,j,k;
+	while(1)
+	{
+		sum1=0;
+		sum2=0;
+		total=0;
+		pos1=0;
+		pos2=0;
+		cin>>m;
+		if(m==0)
+			break;
+		for(i=0;i<m;i++)
+			cin>>a[i];
+		cin>>n;
+		for(i=0;i<n;i++)
+		{
+			cin>>b[i];
+			for(j=pos1;j<m&&a[j]<=b[i];j++)
+			{
+				if(a[j]==b[i])
+				{
+					for(k=pos1;k<j;k++)
+						sum1=sum1+a[k];
+					for(k=pos2;k<i;k++)
+						sum2=sum2+b[k];
+					pos1=j;
+					pos2=i;
+					if(sum1>sum2)
+						total=total+sum1;
+					else
+						total=total+sum2;
+					sum1=0;
+					sum2=0;
+					break;
+				}
+			}
+		}
+		for(i=pos1;i<m;i++)
+			sum1=sum1+a[i];
+		for(i=pos2;i<n;i++)
+			sum2=sum2+b[i];
+		if(sum1>sum2)
+			total=total+sum1;
+		else
+			total=total+sum2;
+		cout<<total<<"\n";
+	}
+}
+		

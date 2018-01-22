@@ -5,13 +5,13 @@
 #include<map>
 using namespace std;
 
-long tree[200005],a[200005],b[200005],ans;
-map <long,int> m;
+long long tree[200005],a[200005],b[200005],ans;
+map <long long,int> m;
 int t,n;
 
-int read(int idx)
+long long read(int idx)
 {
-    int sum=0;
+    long long sum=0;
     while(idx>0)
     {
         sum+=tree[idx];
@@ -53,3 +53,5 @@ int main()
         cout<<ans<<"\n";
     }
 }
+
+
